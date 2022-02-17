@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import Seo from "../../components/seo";
 import Layout from "../../components/layout";
+import PublishedDate from "../../components/publishedDate";
 
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
@@ -57,9 +58,7 @@ const Article = ({ article, categories }) => {
                 By {article.attributes.author.data.attributes.name}
               </p>
               <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">
-                  {article.attributes.published_at}
-                </Moment>
+                <PublishedDate date={article.attributes.published_at} />
               </p>
             </div>
           </div>

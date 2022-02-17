@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import NextImage from "./image";
+import PublishedDate from "./publishedDate"
 
 const Card = ({ article }) => {
   return (
@@ -15,8 +16,9 @@ const Card = ({ article }) => {
               {article.attributes.category.data.attributes.name}
             </p>
             <p id="title" className="uk-text-large">
-              {article.attributes.title}
+              {article.attributes.title} 
             </p>
+            <p className="uk-text-meta uk-margin-remove-top"> <PublishedDate date={article.attributes.published_at} /> </p>
             <p>{article.attributes.description}</p>
           </div>
         </div>
