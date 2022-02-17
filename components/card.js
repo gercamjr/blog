@@ -6,7 +6,7 @@ const Card = ({ article }) => {
   return (
     <Link href={`/article/${article.attributes.slug}`}>
       <a className="uk-link-reset">
-        <div className="uk-card uk-card-muted">
+        <div className="uk-card uk-card-default card">
           <div className="uk-card-media-top">
             <NextImage image={article.attributes.image} />
           </div>
@@ -17,6 +17,7 @@ const Card = ({ article }) => {
             <p id="title" className="uk-text-large">
               {article.attributes.title}
             </p>
+            <p>{article.attributes.description}</p>
           </div>
         </div>
       </a>

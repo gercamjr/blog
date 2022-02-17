@@ -1,16 +1,20 @@
 import React from "react";
 import Articles from "../components/articles";
 import Layout from "../components/layout";
+import Banner from "../components/banner";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 
-const Home = ({ articles, categories, homepage }) => {
+
+const Home = ({ articles, categories, homepage, assets }) => {
+  console.log(assets);
+  console.log(assets[0].attributes.images.data.attributes)
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
-          <h1>{homepage.attributes.hero.title}</h1>
+        <Banner logo={assets} />
           <Articles articles={articles} />
         </div>
       </div>
@@ -20,7 +24,7 @@ const Home = ({ articles, categories, homepage }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+  const [articlesRes, categoriesRes, homepageRes, assetsRes] = await Promise.all([
     fetchAPI("/articles", { populate: ["image", "category"] }),
     fetchAPI("/categories", { populate: "*" }),
     fetchAPI("/homepage", {
@@ -29,6 +33,8 @@ export async function getStaticProps() {
         seo: { populate: "*" },
       },
     }),
+    fetchAPI("/assets", {populate: "*" }),
+    
   ]);
 
   return {
@@ -36,6 +42,7 @@ export async function getStaticProps() {
       articles: articlesRes.data,
       categories: categoriesRes.data,
       homepage: homepageRes.data,
+      assets: assetsRes.data,
     },
     revalidate: 1,
   };

@@ -15,7 +15,7 @@ const Nav = ({ categories }) => {
           </ul>
         </div>
         <div className="uk-navbar-right">
-          <ul className="uk-navbar-nav">
+          <ul className="uk-navbar-nav uk-visible@s">
             {categories.map((category) => {
               return (
                 <li key={category.id}>
@@ -26,6 +26,7 @@ const Nav = ({ categories }) => {
               );
             })}
           </ul>
+          <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-icon="icon: menu" uk-toggle="target: #sidenav"></a>
         </div>
       </nav>
     </div>
