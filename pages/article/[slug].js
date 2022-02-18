@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import Seo from "../../components/seo";
 import Layout from "../../components/layout";
 import PublishedDate from "../../components/publishedDate";
+import Comments from "../../components/comments";
 
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
@@ -23,7 +24,7 @@ const Article = ({ article, categories }) => {
       <Seo seo={seo} />
       <div
         id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
+        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
         data-src={imageUrl}
         data-srcset={imageUrl}
         data-uk-img
@@ -61,6 +62,11 @@ const Article = ({ article, categories }) => {
                 <PublishedDate date={article.attributes.published_at} />
               </p>
             </div>
+          </div>
+        </div>
+        <div className="uk-container uk-container-small ">
+          <div className="comments">
+            <Comments article={article} />
           </div>
         </div>
       </div>
