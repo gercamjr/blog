@@ -1,25 +1,27 @@
 import React from "react";
 import Link from "next/link";
 import NextImage from "./image";
-import PublishedDate from "./publishedDate"
+import PublishedDate from "./publishedDate";
 
 const Card = ({ article }) => {
   return (
     <Link href={`/article/${article.attributes.slug}`}>
       <a className="uk-link-reset">
-        <div className="uk-card uk-card-default card">
-          <div className="uk-card-media-top">
+        <div className="blog-slider__item swiper-slide">
+          <div className="blog-slider__img">
             <NextImage image={article.attributes.image} />
           </div>
-          <div className="uk-card-body">
-            <p id="category" className="uk-text-uppercase">
+          <div className="blog-slider__content">
+            <span className="blog-slider__code">
               {article.attributes.category.data.attributes.name}
-            </p>
-            <p id="title" className="uk-text-large">
-              {article.attributes.title} 
-            </p>
-            <p className="uk-text-meta uk-margin-remove-top"> <PublishedDate date={article.attributes.published_at} /> </p>
-            <p>{article.attributes.description}</p>
+            </span>
+            <div className="blog-slider__title">{article.attributes.title}</div>
+            <div className="blog-slider__date">
+              <PublishedDate date={article.attributes.published_at} />
+            </div>
+            <div className="blog-slider__text">
+              {article.attributes.description}
+            </div>
           </div>
         </div>
       </a>
