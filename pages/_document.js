@@ -26,6 +26,12 @@ class MyDocument extends Document {
             async
             src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js"
           />
+
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+          />
+          <script async src="https://unpkg.com/swiper@7/swiper-bundle.min.js" />
         </Head>
         <body>
           <Main />
