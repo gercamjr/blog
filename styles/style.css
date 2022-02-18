@@ -45,6 +45,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--clr-primary);
 }
 
 body {
@@ -273,6 +274,7 @@ img:hover {
 }
 
 .article {
+    margin: 1.25em;
     background-color: var(--clr-light);
     padding: 2em;
     border-radius: 10px;
