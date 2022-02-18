@@ -20,13 +20,13 @@ const Nav = ({ categories }) => {
               return (
                 <li key={category.id}>
                   <Link href={`/category/${category.attributes.slug}`}>
-                    <a className="uk-link-reset">{category.attributes.name}</a>
+                    <a>{category.attributes.name}</a>
                   </Link>
                 </li>
               );
             })}
           </ul>
-          <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-icon="icon: menu" uk-toggle="target: #sidenav"></a>
+          <a href="#" className="uk-navbar-toggle uk-hidden@s" uk-icon="icon: menu" uk-toggle="target: #sidenav"></a>
         </div>
       </nav>
     </div>

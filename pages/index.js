@@ -7,8 +7,7 @@ import { fetchAPI } from "../lib/api";
 
 
 const Home = ({ articles, categories, homepage, assets }) => {
-  console.log(assets);
-  console.log(assets[0].attributes.images.data.attributes)
+  
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />

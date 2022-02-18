@@ -4,6 +4,7 @@ import Head from "next/head";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
+import React from 'react';
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -11,7 +12,8 @@ export const GlobalContext = createContext({});
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
 
-  useEffect(() => {
+  React.useEffect(() => {
+    console.log("creating the swiper")
     const script = document.createElement("script");
     script.innerHTML = `
     var swiper = new Swiper(".blog-slider", {
@@ -28,7 +30,7 @@ const MyApp = ({ Component, pageProps }) => {
       },
     })`;
     document.body.appendChild(script);
-  }, []);
+  });
 
   return (
     <>

@@ -205,7 +205,17 @@ label {
 
 /* ui kit */
 
+.uk-navbar-toggle {
+    color: var(--color-text);
+}
+
 a {
+    text-decoration: none;
+    color: var(--color-secondary);
+}
+
+a:hover {
+    color: var(--clr-secondary);
     text-decoration: none;
 }
 
@@ -240,7 +250,7 @@ h1 {
     line-height: 1.75;
 }
 
-#__next>div:nth-child(1)>nav>div.uk-navbar-left>ul>li>a {
+.uk-navbar-nav>li>a {
     color: var(--clr-dark);
     font-weight: 700;
 }
@@ -253,6 +263,7 @@ h1 {
 }
 
 .uk-section {
+    padding-top: 0 !important;
     background-color: var(--clr-primary);
 }
 
@@ -284,7 +295,7 @@ img:hover {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
-    background: #fff;
+    background: var(--clr-highlight);
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
     padding: 25px;
     border-radius: 25px;
@@ -416,14 +427,18 @@ img:hover {
     opacity: 0.8;
 }
 
-.blog-slider__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.blog-slider__img>span img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
     display: block;
     opacity: 0;
-    border-radius: 20px;
+    border-radius: 20px !important;
     transition: all 0.3s;
+}
+
+.blog-slider__img>span {
+    position: inherit !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -563,7 +578,7 @@ img:hover {
 
 .blog-slider__pagination .swiper-pagination-bullet-active {
     opacity: 1;
-    background: #fd3838;
+    background: var(--clr-secondary);
     height: 30px;
     box-shadow: 0px 0px 20px rgba(252, 56, 56, 0.3);
 }

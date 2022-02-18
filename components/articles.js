@@ -9,10 +9,10 @@ const Articles = ({ articles }) => {
   return (
     <div className="blog-slider">
       
-        <div className="blog-slider__wrp swiper-wrappe">
+        <div className="blog-slider__wrp swiper-wrapper">
           {cards}
         </div>
-      
+        <div className="blog-slider__pagination"></div>
     </div>
   );
 };
