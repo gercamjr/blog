@@ -1,7 +1,7 @@
 import React from "react";
 import NextImage from "./image";
 
-export default function (props) {
+export default function Banner(props) {
   return (
     <div className="sandbox-clean-and-grimey">
       <div id="logo">
