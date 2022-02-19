@@ -1,4 +1,3 @@
-import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 
 import Seo from "../../components/seo";
