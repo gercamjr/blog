@@ -44,6 +44,7 @@ const MyApp = ({ Component, pageProps }) => {
     // from the event with the `off` method
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
+      document.body.removeChild(script);
     };
   }, [router.events]);
 
