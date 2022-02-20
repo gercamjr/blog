@@ -1,19 +1,22 @@
-import '../styles/style.css'
+import "../styles/style.css";
 import App from "next/app";
 import Head from "next/head";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
-import React from 'react';
+import React from "react";
+import { useRouter } from "next/router";
+import * as ga from "../lib/ga";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
+  const router = useRouter();
 
   React.useEffect(() => {
-    console.log("creating the swiper")
+    console.log("creating the swiper");
     const script = document.createElement("script");
     script.innerHTML = `
     var swiper = new Swiper(".blog-slider", {
@@ -30,7 +33,19 @@ const MyApp = ({ Component, pageProps }) => {
       },
     })`;
     document.body.appendChild(script);
-  });
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
@@ -68,4 +83,3 @@ MyApp.getInitialProps = async (ctx) => {
 };
 
 export default MyApp;
-
