@@ -17,6 +17,14 @@ const MyApp = ({ Component, pageProps }) => {
 
   React.useEffect(() => {
     console.log("creating the swiper");
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+
     const script = document.createElement("script");
     script.innerHTML = `
     var swiper = new Swiper(".blog-slider", {
@@ -33,12 +41,7 @@ const MyApp = ({ Component, pageProps }) => {
       },
     })`;
     document.body.appendChild(script);
-    const handleRouteChange = (url) => {
-      ga.pageview(url);
-    };
-    //When the component is mounted, subscribe to router changes
-    //and log those page views
-    router.events.on("routeChangeComplete", handleRouteChange);
+    
 
     // If the component is unmounted, unsubscribe
     // from the event with the `off` method
@@ -46,7 +49,7 @@ const MyApp = ({ Component, pageProps }) => {
       router.events.off("routeChangeComplete", handleRouteChange);
       document.body.removeChild(script);
     };
-  }, [router.events]);
+  },);
 
   return (
     <>
