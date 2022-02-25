@@ -17,7 +17,7 @@ const Article = ({ article, categories }) => {
     shareImage: article.attributes.image,
     article: true,
   };
-
+  //console.log("article attributes", article.attributes)
   return (
     <Layout categories={categories.data}>
       <Seo seo={seo} />
@@ -58,7 +58,7 @@ const Article = ({ article, categories }) => {
                 By {article.attributes.author.data.attributes.name}
               </p>
               <p className="uk-text-meta uk-margin-remove-top">
-                <PublishedDate date={article.attributes.published_at} />
+                <PublishedDate date={article.attributes.publishedAt} />
               </p>
             </div>
           </div>

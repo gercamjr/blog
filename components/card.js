@@ -19,7 +19,7 @@ const Card = ({ article }) => {
           </Link>
         </div>
         <div className="blog-slider__date">
-          <PublishedDate date={article.attributes.published_at} />
+          <PublishedDate date={article.attributes.publishedAt} />
         </div>
         <div className="blog-slider__text">
           {article.attributes.description}
