@@ -3,12 +3,32 @@ import Layout from "../../components/layout";
 import Articles from "../../components/articles";
 import Banner from "../../components/banner";
 import { fetchAPI } from "../../lib/api";
+import Swiper from 'swiper/bundle';
+import "swiper/css/bundle";
+import React from "react"
 
 const Category = ({ category, categories, assets }) => {
   const seo = {
     metaTitle: category.attributes.name,
     metaDescription: `All ${category.attributes.name} articles`,
   };
+
+  React.useEffect(() => {
+    var swiper = new Swiper(".blog-slider", {
+      spaceBetween: 30,
+      effect: "fade",
+      loop: false,
+      mousewheel: {
+        invert: false,
+      },
+      // autoHeight: true,
+      pagination: {
+        el: ".blog-slider__pagination",
+        clickable: true,
+      },
+    })
+
+  })
 
   return (
     <Layout categories={categories.data}>

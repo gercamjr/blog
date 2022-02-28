@@ -5,6 +5,9 @@ import Layout from "../../components/layout";
 import PublishedDate from "../../components/publishedDate";
 import Comments from "../../components/comments";
 
+import Swiper from 'swiper/bundle';
+import "swiper/css/bundle";
+
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 
@@ -17,6 +20,8 @@ const Article = ({ article, categories }) => {
     shareImage: article.attributes.image,
     article: true,
   };
+
+  
   //console.log("article attributes", article.attributes)
   return (
     <Layout categories={categories.data}>

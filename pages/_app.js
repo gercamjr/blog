@@ -16,38 +16,19 @@ const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
 
   React.useEffect(() => {
-    console.log("creating the swiper");
     const handleRouteChange = (url) => {
       ga.pageview(url);
     };
     //When the component is mounted, subscribe to router changes
     //and log those page views
     router.events.on("routeChangeComplete", handleRouteChange);
-
-
-    const script = document.createElement("script");
-    script.innerHTML = `
-    var swiper = new Swiper(".blog-slider", {
-      spaceBetween: 30,
-      effect: "fade",
-      loop: false,
-      mousewheel: {
-        invert: false,
-      },
-      // autoHeight: true,
-      pagination: {
-        el: ".blog-slider__pagination",
-        clickable: true,
-      },
-    })`;
-    document.body.appendChild(script);
-    
+  
 
     // If the component is unmounted, unsubscribe
     // from the event with the `off` method
     return () => {
       router.events.off("routeChangeComplete", handleRouteChange);
-      document.body.removeChild(script);
+      
     };
   },);
 

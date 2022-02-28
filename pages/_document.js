@@ -27,11 +27,11 @@ class MyDocument extends Document {
             src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.2.0/js/uikit.js"
           />
 
-          <link
+          {/* <link
             rel="stylesheet"
             href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-          />
-          <script async src="https://unpkg.com/swiper@7/swiper-bundle.min.js" />
+          /> */}
+          
 
           <script
             async
@@ -49,28 +49,13 @@ class MyDocument extends Document {
           `,
             }}
           />
+          {/* <script async src="https://unpkg.com/swiper@7/swiper-bundle.min.js" />
+    <script async src="./js/swiperworker.js" type="text/javascript"/> */}
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-    var swiper = new Swiper(".blog-slider", {
-      spaceBetween: 30,
-      effect: "fade",
-      loop: false,
-      mousewheel: {
-        invert: false,
-      },
-      // autoHeight: true,
-      pagination: {
-        el: ".blog-slider__pagination",
-        clickable: true,
-      },
-    })`,
-            }}
-          />
+          
         </body>
       </Html>
     );
